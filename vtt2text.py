@@ -2,15 +2,15 @@
 # @Author: anh-tuan.vu
 # @Date:   2021-01-27 07:02:40
 # @Last Modified by:   anh-tuan.vu
-# @Last Modified time: 2021-01-27 07:57:58
+# @Last Modified time: 2021-01-27 15:14:23
 
 import re
 from os.path import splitext
 from os.path import exists
 
 
-def convert(filepath: str) -> str:
-    """Convert content of a subtitle file (vtt) to string
+def clean(filepath: str) -> str:
+    """Clean up the content of a subtitle file (vtt) to a string
 
     Args:
         filepath (str): path to vtt file
@@ -29,7 +29,7 @@ def convert(filepath: str) -> str:
     # remove indexes
     lines = [lines[i] for i in range(len(lines)) if not lines[i].isdigit()]
 
-    # remove times
+    # remove timestamps
     pattern = r"^\d{2}:\d{2}:\d{2}.\d{3}.*\d{2}:\d{2}:\d{2}.\d{3}$"
     lines = [lines[i] for i in range(len(lines))
              if not re.match(pattern, lines[i])]
@@ -47,7 +47,7 @@ def convert(filepath: str) -> str:
 
 
 def tofile(file_in: str, file_out=None):
-    """Save content of a subtitle file to text file
+    """Save clean content of a subtitle file to text file
 
     Args:
         file_in (str): path to vtt file
@@ -62,7 +62,7 @@ def tofile(file_in: str, file_out=None):
             i += 1
             file_out = "%s_%s.txt" % (filename, i)
 
-    content = convert(file_in)
+    content = clean(file_in)
     with open(file_out, "w+", encoding="utf-8") as fp:
         fp.write(content)
     print("clean content is written to file: %s" % file_out)

@@ -11,7 +11,7 @@ if __name__ == '__main__':
     filepath = "files/transports_en_commun.vtt"
 
     # get clean content
-    content = vtt2text.convert(filepath)
+    content = vtt2text.clean(filepath)
     print(content)
 
     # save clean content to text file
