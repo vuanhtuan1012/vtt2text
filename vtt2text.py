@@ -2,7 +2,7 @@
 # @Author: anh-tuan.vu
 # @Date:   2021-01-27 07:02:40
 # @Last Modified by:   anh-tuan.vu
-# @Last Modified time: 2021-01-27 15:14:23
+# @Last Modified time: 2021-01-27 17:18:44
 
 import re
 from os.path import splitext
@@ -23,8 +23,8 @@ def clean(filepath: str) -> str:
         content = fp.read()
 
     # remove header & empty lines
-    lines = [line for line in content.split("\n") if line]
-    lines = lines[1:]
+    lines = [line.strip() for line in content.split("\n") if line.strip()]
+    lines = lines[1:] if lines[0].upper() == "WEBVTT" else lines
 
     # remove indexes
     lines = [lines[i] for i in range(len(lines)) if not lines[i].isdigit()]
@@ -36,7 +36,7 @@ def clean(filepath: str) -> str:
 
     content = " ".join(lines)
     # remove duplicate spaces
-    pattern = r"\s{2,}"
+    pattern = r"\s+"
     content = re.sub(pattern, r" ", content)
 
     # add space after punctuation marks if it doesn't exist
