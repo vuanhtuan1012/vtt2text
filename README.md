@@ -26,3 +26,7 @@ Before:
 After:
 
 ![txt file](images/after.png)
+
+## Example
+
+An example is at [test.py](test.py).
