@@ -2,7 +2,7 @@
 # @Author: anh-tuan.vu
 # @Date:   2021-01-27 07:02:40
 # @Last Modified by:   anh-tuan.vu
-# @Last Modified time: 2021-01-27 17:18:44
+# @Last Modified time: 2021-01-27 20:03:14
 
 import re
 from os.path import splitext
@@ -46,7 +46,7 @@ def clean(filepath: str) -> str:
     return content
 
 
-def tofile(file_in: str, file_out=None):
+def to_file(file_in: str, file_out=None):
     """Save clean content of a subtitle file to text file
 
     Args:

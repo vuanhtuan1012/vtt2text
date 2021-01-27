@@ -2,7 +2,7 @@
 # @Author: anh-tuan.vu
 # @Date:   2021-01-27 07:50:00
 # @Last Modified by:   anh-tuan.vu
-# @Last Modified time: 2021-01-27 07:59:01
+# @Last Modified time: 2021-01-27 20:03:29
 
 import vtt2text
 
@@ -16,4 +16,4 @@ if __name__ == '__main__':
 
     # save clean content to text file
     print()
-    vtt2text.tofile(filepath)
+    vtt2text.to_file(filepath)
