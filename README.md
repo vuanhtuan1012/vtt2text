@@ -1,7 +1,7 @@
 # vtt2text
 
 [![vtt2text](https://img.shields.io/badge/project-vtt2text-brightgreen)](https://pypi.org/project/vtt2text/)
-![pypi version](https://img.shields.io/pypi/v/vtt2text?style=social)
+![pypi version](https://img.shields.io/pypi/v/vtt2text)
 ![Python](https://img.shields.io/badge/Python-3.6-blue.svg)
 ![MIT](https://img.shields.io/badge/license-MIT-important.svg)
 ![Size](https://img.shields.io/github/repo-size/vuanhtuan1012/vtt2text.svg)
