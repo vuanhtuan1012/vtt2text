@@ -7,7 +7,7 @@
 ![Size](https://img.shields.io/github/repo-size/vuanhtuan1012/vtt2text.svg)
 ![Contributors](https://img.shields.io/github/contributors/vuanhtuan1012/vtt2text.svg)
 
-Small scripts to clean up the content of a subtitle file `.vtt`.
+Small scripts to clean up the content of a subtitle file `.vtt` to plain text.
 
 ## Install
 
