@@ -2,11 +2,10 @@
 # @Author: anh-tuan.vu
 # @Date:   2021-01-27 07:02:40
 # @Last Modified by:   anh-tuan.vu
-# @Last Modified time: 2021-01-27 20:03:14
+# @Last Modified time: 2021-01-28 08:19:33
 
 import re
-from os.path import splitext
-from os.path import exists
+from os.path import splitext, exists
 
 
 def clean(filepath: str) -> str:
@@ -46,17 +45,24 @@ def clean(filepath: str) -> str:
     return content
 
 
-def to_file(file_in: str, file_out=None):
+def to_file(file_in: str, file_out=None, **kwargs) -> str:
     """Save clean content of a subtitle file to text file
 
     Args:
         file_in (str): path to vtt file
-        file_out (None, optional): Description
+        file_out (None, optional): path to text file
+        **kwargs (optional): arguments for other parameters
+            - no_message (bool): do not show message of result.
+                                 Default is False
+
+    Returns:
+        str: path to text file
     """
-    # set default filename
+    # set default values
+    no_message = kwargs.get("no_message", False)
     if not file_out:
         filename = splitext(file_in)[0]
-        file_out = filename + ".txt"
+        file_out = "%s.txt" % filename
         i = 0
         while exists(file_out):
             i += 1
@@ -65,4 +71,7 @@ def to_file(file_in: str, file_out=None):
     content = clean(file_in)
     with open(file_out, "w+", encoding="utf-8") as fp:
         fp.write(content)
-    print("clean content is written to file: %s" % file_out)
+    if not no_message:
+        print("clean content is written to file: %s" % file_out)
+
+    return file_out
